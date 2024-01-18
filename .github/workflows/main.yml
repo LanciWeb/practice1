@@ -15,6 +15,7 @@ jobs:
       run: npm run lint
   test:
     name: Test
+    needs: lint
     runs-on: ubuntu-latest
     steps: 
     - name: Get Node.js
@@ -27,6 +28,7 @@ jobs:
       run: npm run test
   build:
     name: Build
+    needs: test
     runs-on: ubuntu-latest
     steps: 
     - name: Get Node.js
@@ -39,6 +41,7 @@ jobs:
       run: npm run build
   deploy:
     name: Deploy
+    needs: build
     runs-on: ubuntu-latest
     steps: 
     - name: Fake Deploy

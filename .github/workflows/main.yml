@@ -1,49 +1,48 @@
 name: Main Workflow
 on: [push, workflow_dispatch]
-jobs: 
+jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    steps: 
-    - name: Get Node.js
-      uses: actions/setup-node@v3
-    - name: Get Code
-      uses: actions/checkout@v3
-    - name: Install dependencies
-      run: npm ci
-    - name: Lint
-      run: npm run lint
+    steps:
+      - name: Get Node.js
+        uses: actions/setup-node@v3
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
   test:
     name: Test
     needs: lint
     runs-on: ubuntu-latest
-    steps: 
-    - name: Get Node.js
-      uses: actions/setup-node@v3
-    - name: Get Code
-      uses: actions/checkout@v3
-    - name: Install dependencies
-      run: npm ci
-    - name: Lint
-      run: npm run test
+    steps:
+      - name: Get Node.js
+        uses: actions/setup-node@v3
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run test
   build:
     name: Build
     needs: test
     runs-on: ubuntu-latest
-    steps: 
-    - name: Get Node.js
-      uses: actions/setup-node@v3
-    - name: Get Code
-      uses: actions/checkout@v3
-    - name: Install dependencies
-      run: npm ci
-    - name: Lint
-      run: npm run build
+    steps:
+      - name: Get Node.js
+        uses: actions/setup-node@v3
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run build
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    steps: 
-    - name: Fake Deploy
-      run: echo "Deploying..."
-      
+    steps:
+      - name: Fake Deploy
+        run: echo "Deployin from local..."

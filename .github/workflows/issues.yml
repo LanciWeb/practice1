@@ -1,0 +1,11 @@
+name: Main Workflow
+on: issues
+jobs:
+  issue:
+    name: Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Node.js
+        run: |
+          echo "Something happened related to an issue"
+          echo "${{github}}"
